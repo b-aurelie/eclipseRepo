@@ -1,0 +1,16 @@
+package fenetre;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Fenetre {
+
+	private JLabel labelNom = new JLabel("nom");
+	private JLabel labelPrenom = new JLabel("prenom");
+	private JLabel labelAge = new JLabel("age");
+	private JTextField texteNom = new JTextField();
+	private JTextField textePrenom = new JTextField();
+	private JTextField texteAge = new JTextField();
+	private JButton boutonAjout = new JButton("Ajout");
+}

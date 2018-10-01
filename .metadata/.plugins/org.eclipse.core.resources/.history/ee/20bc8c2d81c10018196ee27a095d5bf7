@@ -1,0 +1,60 @@
+package fenetre;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+import model.Personne;
+
+public class FenetreConsultation extends JFrame implements ActionListener{
+	
+	private JTextArea zoneTexte = new JTextArea("zone");
+	private JButton boutonOk = new JButton("OK");
+	private ArrayList<JLabel> listeLabel = new ArrayList<JLabel>();
+	private JButton[] listeBouton = new ArrayList<JButton>();
+
+	public FenetreConsultation(ArrayList<Personne> liste) {
+		
+		setVisible(true);
+		setSize(800,800);
+		setLocationRelativeTo(null);
+		setTitle("Liste des personnes");
+		setLayout(null);
+		
+		int yPosition = 20;
+			
+		
+		for (Personne personne : liste) {listeLabel.add(new JLabel("NumP:"+personne.getNumP()+" Nom : "+personne.getNom()+" Prenom : "+personne.getPrenom()+" Age : "+personne.getAge()));}
+		
+
+		for (JLabel jLabel : listeLabel) {
+			add(jLabel);
+			jLabel.setBounds(20, yPosition, 400, 20);
+			yPosition +=20;
+		}
+
+		
+		
+//		add(zoneTexte);
+//		zoneTexte.setBounds(10, 10, 560, 460);
+//		for (Personne personne : liste) {listePers = listePers +personne+"\n";}
+//		zoneTexte.setText(listePers);
+		
+		add(boutonOk);
+		boutonOk.setEnabled(true);
+		boutonOk.setBounds(270, yPosition+20, 60, 20);
+		boutonOk.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		this.dispose();
+		
+	}
+}

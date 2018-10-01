@@ -1,0 +1,16 @@
+package thirdJavaTask;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Exemple<Integer> entier = new Exemple<Integer>();
+		entier.setVar(10);
+		System.out.println(entier.getVar().getClass().getTypeName() + " " + entier.getVar());
+		
+		Exemple<String> chaine = new Exemple<String>();
+		chaine.setVar("Bonjour");
+		System.out.println(chaine.getVar().getClass().getTypeName() + " " + chaine.getVar());
+	}
+
+}

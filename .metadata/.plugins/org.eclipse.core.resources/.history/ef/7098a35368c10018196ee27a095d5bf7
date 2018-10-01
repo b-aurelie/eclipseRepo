@@ -1,0 +1,103 @@
+package fenetre;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import dao.PersonneDaoImpl;
+import model.Personne;
+
+public class FenetreAccueil extends JFrame implements KeyListener, ActionListener {
+
+	private JTextArea zoneTexte = new JTextArea("zone");
+	private JButton boutonAjout = new JButton("Ajouter");
+	private JButton boutonModifier = new JButton("Modifier");
+	private JButton boutonSupprimer = new JButton("Supprimer");
+	private JButton boutonConsulter = new JButton("Consulter");
+	private JButton boutonDeco = new JButton("Deconnexion");
+	
+
+	public FenetreAccueil(String nom, String prenom) {
+	
+		setVisible(true);
+		setSize(300, 200);
+		setLocationRelativeTo(null);
+		setTitle("Accueil");
+		setLayout(null);
+		
+		add(zoneTexte);
+		zoneTexte.setBounds(20, 20, 240, 30);
+		zoneTexte.setText("Bonjour "+prenom+ " "+nom+". Il est");
+		
+		add(boutonAjout);
+		boutonAjout.setEnabled(true);
+		boutonAjout.setBounds(20, 60, 120, 20);
+		boutonAjout.addActionListener(this);
+		
+		add(boutonModifier);
+		boutonModifier.setEnabled(true);
+		boutonModifier.setBounds(140, 60, 120, 20);
+		boutonModifier.addActionListener(this);
+		
+		add(boutonSupprimer);
+		boutonSupprimer.setEnabled(true);
+		boutonSupprimer.setBounds(20, 80, 120, 20);
+		boutonSupprimer.addActionListener(this);
+		
+		add(boutonConsulter);
+		boutonConsulter.setEnabled(true);
+		boutonConsulter.setBounds(140, 80, 120, 20);
+		boutonConsulter.addActionListener(this);
+		
+		add(boutonDeco);
+		boutonDeco.setEnabled(true);
+		boutonDeco.setBounds(20, 110, 240, 20);
+		boutonDeco.addActionListener(this);
+}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		if (ae.getSource()==boutonAjout) {
+			
+		}
+		else if (ae.getSource()==boutonModifier) {
+			
+		}
+		else if (ae.getSource()==boutonSupprimer) {
+			
+		}
+		else if (ae.getSource()==boutonConsulter) {
+			PersonneDaoImpl daop = new PersonneDaoImpl();
+			ArrayList<Personne> listeP = daop.getAll();
+			JOptionPane.showMessageDialog(this,listeP);
+			
+		}
+		else if (ae.getSource()==boutonDeco) {
+			this.dispose();
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+	
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+
+	}
+}

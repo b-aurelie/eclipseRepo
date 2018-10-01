@@ -1,0 +1,62 @@
+package tp1exercice1;
+
+public class MaDate {
+
+	private int jour,mois,annee;
+
+	public MaDate() {super();}
+	
+	public MaDate(int jour, int mois, int annee) {
+		super();
+		this.jour = jour;
+		this.mois = mois;
+		this.annee = annee;
+	}
+
+	public int getJour() {
+		return jour;
+	}
+
+	public void setJour(int jour) {
+		this.jour = jour;
+	}
+
+	public int getMois() {
+		return mois;
+	}
+
+	public void setMois(int mois) {
+		this.mois = mois;
+	}
+
+	public int getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(int annee) {
+		this.annee = annee;
+	}
+
+	@Override
+	public String toString() {
+		return "MaDate = " + jour + "/" + mois + "/" + annee;
+	}
+	
+	public void ajouterUnJour() {
+		int j=this.getJour(),m=this.getMois(),a=this.getAnnee();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

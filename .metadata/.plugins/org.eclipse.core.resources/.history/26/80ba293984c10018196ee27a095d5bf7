@@ -1,0 +1,85 @@
+package fenetre;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+import model.Personne;
+
+public class FenetreConsultation extends JFrame implements ActionListener{
+	
+	private JTextArea zoneTexte = new JTextArea("zone");
+	private JButton boutonOk = new JButton("OK");
+	private ArrayList<JLabel> listeLabel = new ArrayList<JLabel>();
+	private HashMap<Integer,JButton> listeBoutonModif = new HashMap<Integer,JButton>();
+	private HashMap<Integer,JButton> listeBoutonSupp = new HashMap<Integer,JButton>();
+
+	public FenetreConsultation(ArrayList<Personne> liste) {
+		
+		setVisible(true);
+		setSize(800,800);
+		setLocationRelativeTo(null);
+		setTitle("Liste des personnes");
+		setLayout(null);
+		int yLPosition = 20;
+		int yBPosition = 20;
+		int yCPosition = 20;
+			
+		for (Personne personne : liste) {listeLabel.add(new JLabel("NumP:"+personne.getNumP()+" Nom:"+personne.getNom()+" Prenom:"+personne.getPrenom()+" Age:"+personne.getAge()));}
+		
+		for (JLabel jLabel : listeLabel) {
+			add(jLabel);
+			jLabel.setBounds(20, yLPosition, 400, 20);
+			yLPosition +=20;
+		}
+		
+		for (Personne personne : liste) {
+			listeBoutonModif.put(personne.getNumP(),new JButton("Modifier"));
+			listeBoutonSupp.put(personne.getNumP(),new JButton("Supprimer"));
+		}
+		
+		for (Entry<Integer,JButton> entry : listeBoutonModif.entrySet()) {
+			add(entry.getValue());
+			entry.getValue().setVisible(true);
+			entry.getValue().setBounds(420, yBPosition, 120, 20);
+			entry.getValue().addActionListener(this);
+			yBPosition +=20;
+		}
+		
+		for (Entry<Integer,JButton> entry : listeBoutonSupp.entrySet()) {
+			add(entry.getValue());
+			entry.getValue().setVisible(true);
+			entry.getValue().setBounds(550, yCPosition, 120, 20);
+			entry.getValue().addActionListener(this);
+			yCPosition +=20;
+		}
+
+		
+		
+//		add(zoneTexte);
+//		zoneTexte.setBounds(10, 10, 560, 460);
+//		for (Personne personne : liste) {listePers = listePers +personne+"\n";}
+//		zoneTexte.setText(listePers);
+		
+		add(boutonOk);
+		boutonOk.setEnabled(true);
+		boutonOk.setBounds(270, yLPosition+20, 60, 20);
+		boutonOk.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		this.dispose();
+		
+	}
+}

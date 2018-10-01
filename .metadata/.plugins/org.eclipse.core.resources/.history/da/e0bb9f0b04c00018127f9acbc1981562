@@ -1,0 +1,25 @@
+package org.eclipse.fenetre;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Fenetre2 {
+	
+	private JTextField texte1 = new JTextField();
+
+	public Fenetre2() {
+		setVisible(true);
+		setSize(200, 200);
+		setLocationRelativeTo(null);
+		setTitle("Fenetre2");
+		setLayout(null);
+		add(texte1);
+
+	
+		texte1.setBounds(20, 20, 120, 20);
+		
+
+		
+	}
+}
+

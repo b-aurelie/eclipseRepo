@@ -1,0 +1,48 @@
+package fenetre;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Fenetre {
+
+	private JLabel labelNom = new JLabel("nom");
+	private JLabel labelPrenom = new JLabel("prenom");
+	private JLabel labelAge = new JLabel("age");
+	private JTextField texteNom = new JTextField();
+	private JTextField textePrenom = new JTextField();
+	private JTextField texteAge = new JTextField();
+	private JButton boutonAjout = new JButton("Ajout");
+
+	public Fenetre() {
+		setVisible(true);
+		setSize(250, 200);
+		setLocationRelativeTo(null);
+		setTitle("Fenetre1");
+		setLayout(null);
+		
+		add(label1);
+		label1.setBounds(20, 20, 120, 20);
+		
+		add(label2);
+		label2.setBounds(20, 40, 120, 20);
+		
+		add(label3);
+		label3.setBounds(20, 130, 120, 20);
+		
+		add(texte1);
+		texte1.setBounds(100, 20, 120, 20);
+		texte1.addKeyListener(this);
+		
+		add(texte2);
+		texte2.setBounds(100, 40, 120, 20);
+		texte2.addKeyListener(this);
+		
+		add(texte3);
+		texte3.setBounds(100, 130, 120, 20);
+		
+		add(boutonAdd);
+		boutonAdd.setEnabled(false);
+		boutonAdd.setBounds(20, 80, 50, 20);
+		boutonAdd.addActionListener(this);
+}

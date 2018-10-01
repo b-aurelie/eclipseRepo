@@ -1,0 +1,31 @@
+package exercices;
+
+import java.util.Random;
+
+public class sacAdos {
+
+	public static void main(String[] args) {
+		
+		int maxV = 6;
+		int minV = 1;
+		Random randV = new Random();
+		int tabVolume[] = new int [50];
+		for (int i=0;i<tabVolume.length;i++) {
+			tabVolume[i]=randV.nextInt(maxV - minV + 1) + minV;
+			System.out.println(tabVolume[i]);
+		}
+		
+		
+		int maxP = 15;
+		int minP = 1;
+		Random randP = new Random();
+		int nombreAleatoire2 = randP.nextInt(maxP - minP + 1) + minP;
+		int tabPoids[] = new int [50];
+		
+		
+			
+
+
+	}
+
+}

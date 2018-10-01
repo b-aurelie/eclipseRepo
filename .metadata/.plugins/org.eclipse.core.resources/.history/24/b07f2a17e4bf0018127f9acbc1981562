@@ -1,0 +1,12 @@
+package dao;
+
+import java.util.List;
+import org.eclipse.classes.Personne;
+
+public interface PersonneDao {
+	void save(Personne personne);
+	void remove(Personne personne);
+	void update(Personne personne);
+	Personne findById(int id);
+	List<Personne> getAll();
+}

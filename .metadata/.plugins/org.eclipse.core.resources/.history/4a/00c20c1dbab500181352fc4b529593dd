@@ -1,0 +1,52 @@
+package exercices;
+import java.util.Random;
+
+public class sacAdos {
+	
+	public static void tri(int tab[][]) {
+	
+		int temp[] = {0,0};
+
+		for(int i=tab.length-1;i>0;i--) {
+			for(int j=0;j<i;j++) {
+				if(tab[j+1][1]/tab[j+1][0]>tab[j][1]/tab[j][0]) {
+					for (int z=0;z<=1;z++) {
+						temp[z] = tab[j+1][z];
+						tab[j+1][z] = tab[j][z];
+						tab[j][z] = temp[z];
+					}
+				}
+			}
+		}
+	}
+	
+	public static void affichage(int tab[][]) {
+		for (int i=0;i<tab.length;i++) {
+			System.out.print(tab[i][0]+","+tab[i][1]+"/");
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		Random rand = new Random();
+		//LIMITES VOLUME
+		int maxV = 6; int minV = 1;
+		
+		//LIMITES POIDS
+		int maxP = 15; int minP = 1;
+
+		//CREATION TABLEAU OBJETS [VOLUME][POIDS]
+		int tabObjets[][] = new int[50][2];
+		for (int i=0;i<tabObjets.length;i++) {
+				tabObjets[i][0]=rand.nextInt(maxV - minV + 1) + minV;
+				tabObjets[i][1]=rand.nextInt(maxP - minP + 1) + minP;
+		}
+		affichage(tabObjets);
+		tri(tabObjets);
+		System.out.println("");
+		System.out.println("trié");
+		affichage(tabObjets);
+		
+	}
+
+}

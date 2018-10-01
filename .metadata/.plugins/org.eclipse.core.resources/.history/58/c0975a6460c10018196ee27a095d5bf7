@@ -1,0 +1,18 @@
+package jdbc;
+
+import fenetre.FenetreAjout;
+import fenetre.FenetreAuthentification;
+import fenetre.FenetreRecherche;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		FenetreAuthentification fAuth = new FenetreAuthentification();
+		//FenetreAjout f = new FenetreAjout();
+		//FenetreRecherche f2 = new FenetreRecherche();
+		
+	}
+
+}

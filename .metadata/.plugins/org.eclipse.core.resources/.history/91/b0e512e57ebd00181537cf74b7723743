@@ -1,0 +1,105 @@
+package tp1exercice1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class MaDate {
+
+	private int jour,mois,annee;
+
+	public MaDate() {super();}
+	
+	public MaDate(int jour, int mois, int annee) {
+		super();
+		this.jour = jour;
+		this.mois = mois;
+		this.annee = annee;
+	}
+
+	public int getJour() {
+		return jour;
+	}
+
+	public void setJour(int jour) {
+		this.jour = jour;
+	}
+
+	public int getMois() {
+		return mois;
+	}
+
+	public void setMois(int mois) {
+		this.mois = mois;
+	}
+
+	public int getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(int annee) {
+		this.annee = annee;
+	}
+
+	@Override
+	public String toString() {
+		return "MaDate = " + jour + "/" + mois + "/" + annee;
+	}
+	
+	public void ajouterUnJour() {
+		String mois31 = "1/3/5/7/8/10/12";
+		String mois30 = "4/6/9/11";
+		int j=this.getJour(),m=this.getMois(),a=this.getAnnee();
+		
+		
+		
+		if (m==2) {
+			if ((a%4==0 && a%100!=0)||(a%400==0)) {
+				if (j<29) this.setJour(++j);
+				else {
+					this.setJour(1);
+					this.setMois(++m);
+				}	
+			}
+			else {
+				if (j<28) this.setJour(++j);
+				else {
+					this.setJour(1);
+					this.setMois(++m);
+				}	
+			}
+		}
+		else if (mois31.contains(Integer.toString(m))) {
+			if (j<31) this.setJour(++j);
+			else {
+				if (m == 12) {
+					this.setJour(1);
+					this.setMois(1);
+					this.setAnnee(++a);
+				}
+				this.setJour(1);
+				this.setMois(++m);
+			}
+		}
+		else if (mois30.contains(Integer.toString(m))) {
+			if (j<30) this.setJour(++j);
+			else {
+				this.setJour(1);
+				this.setMois(++m);
+			}
+		}
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

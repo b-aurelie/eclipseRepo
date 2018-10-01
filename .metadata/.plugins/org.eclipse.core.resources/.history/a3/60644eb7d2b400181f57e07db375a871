@@ -1,0 +1,21 @@
+package exercices;
+
+public class exercices {
+
+	public static void main(String[] args) {
+		
+		//TRI
+		
+		int tab[] = {8,7,5,2,3,1,4,6,9,0};
+		int max = 0;
+		int indiceMax = 0;
+		
+		for(int i=0;i<tab.length;i++) {
+			if (tab[i]>max) {
+				indiceMax = i;
+			}
+		}
+		System.out.println(indiceMax);
+	}
+
+}

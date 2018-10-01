@@ -1,0 +1,80 @@
+package fenetre;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import dao.PersonneDaoImpl;
+import model.Personne;
+
+public class FenetreAccueil extends JFrame implements KeyListener, ActionListener {
+
+	private JTextArea zoneTexte = new JTextArea("zone");
+	private JButton boutonAjout = new JButton("Ajouter");
+	private JButton boutonModifier = new JButton("Modifier");
+	private JButton boutonSupprimer = new JButton("Supprimer");
+	private JButton boutonConsulter = new JButton("Consulter");
+	private JButton boutonDeco = new JButton("Deconnexion");
+	
+
+	public FenetreAccueil(String nom, String prenom) {
+	
+		setVisible(true);
+		setSize(300, 200);
+		setLocationRelativeTo(null);
+		setTitle("Accueil");
+		setLayout(null);
+		
+		add(zoneTexte);
+		zoneTexte.setBounds(20, 20, 240, 40);
+		zoneTexte.setText("Bonjour "+prenom+ " "+nom+". Il est");
+		
+		add(boutonAjout);
+		boutonAjout.setEnabled(true);
+		boutonAjout.setBounds(20, 60, 120, 20);
+		boutonAjout.addActionListener(this);
+		
+		add(boutonModifier);
+		boutonModifier.setEnabled(true);
+		boutonModifier.setBounds(140, 60, 120, 20);
+		boutonModifier.addActionListener(this);
+		
+		add(boutonSupprimer);
+		boutonSupprimer.setEnabled(true);
+		boutonSupprimer.setBounds(20, 80, 120, 20);
+		boutonSupprimer.addActionListener(this);
+		
+		add(boutonConsulter);
+		boutonConsulter.setEnabled(true);
+		boutonConsulter.setBounds(140, 80, 120, 20);
+		boutonConsulter.addActionListener(this);
+}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+	
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+
+	}
+}

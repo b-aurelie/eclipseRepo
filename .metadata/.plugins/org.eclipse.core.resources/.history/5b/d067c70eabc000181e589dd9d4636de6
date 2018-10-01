@@ -1,0 +1,13 @@
+package jdbc;
+
+import fenetre.FenetreAjout;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		FenetreAjout f = new FenetreAjout();
+	}
+
+}

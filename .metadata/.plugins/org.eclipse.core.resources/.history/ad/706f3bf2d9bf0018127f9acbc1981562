@@ -1,0 +1,15 @@
+package jdbc;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+	//chargement du driver
+	try {Class.forName("com.mysql.jdbc.Driver");} 
+	catch (ClassNotFoundException e) {e.printStackTrace();}
+	
+	//se connecter a une base de donnees
+
+	}
+
+}

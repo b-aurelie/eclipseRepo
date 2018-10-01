@@ -1,0 +1,61 @@
+package fenetre;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import dao.PersonneDaoImpl;
+import model.Personne;
+
+public class FenetreAccueil extends JFrame implements KeyListener, ActionListener {
+
+	private JTextArea zoneTexte = new JTextArea("zone");
+	private JButton boutonAjout = new JButton("Inscription");
+	
+
+	public FenetreAccueil() {
+	
+		setVisible(true);
+		setSize(250, 200);
+		setLocationRelativeTo(null);
+		setTitle("Accueil");
+		setLayout(null);
+		
+		add(zoneTexte);
+		zoneTexte.setBounds(20, 20, 120, 20);
+		zoneTexte.setText("Bonjour ");
+		
+		add(boutonAjout);
+		boutonAjout.setEnabled(false);
+		boutonAjout.setBounds(100, 80, 120, 20);
+		boutonAjout.addActionListener(this);
+}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+	
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+
+	}
+}

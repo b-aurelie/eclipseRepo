@@ -1,0 +1,8 @@
+package org.eclipse.classe;
+
+import org.eclipse.fenetre.Calculette;
+
+public class Test {
+
+	Calculette calc = new Calculette();
+}

@@ -1,0 +1,9 @@
+package model;
+
+public class Personne {
+
+	private int numP;
+	private String nom;
+	private String prenom;
+	private String age;
+}

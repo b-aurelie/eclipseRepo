@@ -1,0 +1,77 @@
+package tp1exercice1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class MaDate {
+
+	private int jour,mois,annee;
+
+	public MaDate() {super();}
+	
+	public MaDate(int jour, int mois, int annee) {
+		super();
+		this.jour = jour;
+		this.mois = mois;
+		this.annee = annee;
+	}
+
+	public int getJour() {
+		return jour;
+	}
+
+	public void setJour(int jour) {
+		this.jour = jour;
+	}
+
+	public int getMois() {
+		return mois;
+	}
+
+	public void setMois(int mois) {
+		this.mois = mois;
+	}
+
+	public int getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(int annee) {
+		this.annee = annee;
+	}
+
+	@Override
+	public String toString() {
+		return "MaDate = " + jour + "/" + mois + "/" + annee;
+	}
+	
+	public void ajouterUnJour() {
+		String mois31 = "1/3/5/7/8/10/12";
+		String mois30 = "4/6/9/11";
+		StringTokenizer st31 = new StringTokenizer(mois31, "/");
+		StringTokenizer st30 = new StringTokenizer(mois30, "/");
+		int j=this.getJour(),m=this.getMois(),a=this.getAnnee();
+		
+		if (mois31.contains("1")) {
+			if (j<30) j++;
+			else {
+				j+=1;
+				m++;
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,22 @@
+package exercices;
+
+public class challenge {
+
+	public static void main(String[] args) {
+		
+		int tab[] = {0,0,0,0};
+		for(int i=tab.length-1;i>=0;i--) {
+			while (tab[i]<9) {	
+				System.out.println(""+tab[0]+tab[1]+tab[2]+tab[3]);
+				/*if (tab[i]==9) {
+					tab[i-1]++;
+					tab[i]=0;
+				}
+				else {*/
+					tab[i]++;
+				//}
+				//si je suis arrivé à 9 je dois remettre à 0 ET decaler mon i pour l'incrementer
+			}
+		}
+	}
+}

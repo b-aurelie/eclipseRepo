@@ -1,0 +1,52 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		//chargement du driver
+		try {Class.forName("com.mysql.jdbc.Driver");} 
+		catch (ClassNotFoundException e) {e.printStackTrace();}
+		
+		//se connecter a une base de donnees
+		String url = "jdbc:mysql://localhost:3306/formatione?autoReconnect=true&useSSL=false";
+		String user = "root";
+		String password = "root";
+		Connection connexion = null;
+
+		try {connexion = DriverManager.getConnection(url, user, password);}
+		catch (SQLException e) {e.printStackTrace();}
+	
+		finally {
+			if (connexion != null)
+				try {
+					connexion.close();
+					// creation de la requete (statement)
+					Statement statement = connexion.createStatement();
+					// Execution de la requete
+					ResultSet result = statement.executeQuery("SELECT * FROM Personne;");
+					
+					// Recuperation des donnees
+					while (result.next()) {
+						
+						//on indique chaque fois le nom de la colonne et le type
+						int idPersonne = result.getInt("numP");
+						String nom = result.getString("nom");
+						String prenom = result.getString("prenom");
+						
+						System.out.println(nom + " " + prenom );
+					}
+
+				}
+			catch (SQLException ignore) {ignore.printStackTrace();}
+		}
+	
+	}
+}

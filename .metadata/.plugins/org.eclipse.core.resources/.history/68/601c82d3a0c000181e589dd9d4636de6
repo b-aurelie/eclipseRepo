@@ -1,0 +1,165 @@
+package org.eclipse.fenetre;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Fenetre1 extends JFrame implements ActionListener, KeyListener{
+
+	private JLabel label1 = new JLabel("Var1");
+	private JLabel label2 = new JLabel("Var2");
+	private JTextField texte1 = new JTextField();
+	private JTextField texte2 = new JTextField();
+	private JButton boutonAdd = new JButton("+");
+	private JButton boutonSous = new JButton("-");
+	private JButton boutonMult = new JButton("*");
+	private JButton boutonDiv = new JButton("/");
+	String[] operations = {"addition","soustraction","multiplication","division"};
+	private JComboBox<String> operationsBox= new JComboBox(operations);
+			
+	public Fenetre1() {
+		setVisible(true);
+		setSize(250, 250);
+		setLocationRelativeTo(null);
+		setTitle("Fenetre1");
+		setLayout(null);
+		
+		add(label1);
+		label1.setBounds(20, 20, 120, 20);
+		
+		add(label2);
+		label2.setBounds(20, 40, 120, 20);
+		
+		add(texte1);
+		texte1.setBounds(100, 20, 120, 20);
+		texte1.addKeyListener(this);
+		
+		add(texte2);
+		texte2.setBounds(100, 40, 120, 20);
+		texte2.addKeyListener(this);
+		
+		add(boutonAdd);
+		boutonAdd.setEnabled(false);
+		boutonAdd.setBounds(20, 80, 50, 20);
+		boutonAdd.addActionListener(this);
+		
+		add(boutonSous);
+		boutonSous.setEnabled(false);
+		boutonSous.setBounds(70, 80, 50, 20);
+		boutonSous.addActionListener(this);
+		
+		add(boutonMult);
+		boutonMult.setEnabled(false);
+		boutonMult.setBounds(120, 80, 50, 20);
+		boutonMult.addActionListener(this);
+		
+		add(boutonDiv);
+		boutonDiv.setEnabled(false);
+		boutonDiv.setBounds(170, 80, 50, 20);
+		boutonDiv.addActionListener(this);
+		
+		add(operationsBox);
+		operationsBox.setEnabled(false);
+		operationsBox.setSelectedIndex(0);
+		operationsBox.setBounds(20, 100, 200, 20);
+		operationsBox.addActionListener(this);
+	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		int saisie1 = Integer.parseInt(texte1.getText());
+		int saisie2 = Integer.parseInt(texte2.getText());
+		float result;
+		JComboBox cb = (JComboBox)ae.getSource();
+	
+		if ((ae.getSource()==boutonAdd)||((String)cb.getSelectedItem()=="addition")) {
+			result = saisie1+saisie2;
+		}
+		else if ((ae.getSource()==boutonSous)||((String)cb.getSelectedItem()=="soustraction")) {
+			result = saisie1-saisie2;
+		}
+		else if ((ae.getSource()==boutonMult)||((String)cb.getSelectedItem()=="multiplication")) {
+			result = saisie1*saisie2;
+		}
+		else result = (float)saisie1/saisie2;
+		JOptionPane.showMessageDialog(this,result);
+		
+//		Fenetre2 f2 = new Fenetre2(String.valueOf(result));
+//		this.dispose();
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (texte1.getText().length()!=0 && texte2.getText().length()!=0) {
+			if(operationsBox.getItemCount()<4) {operationsBox.addItem("division");}
+			operationsBox.setEnabled(true);
+			boutonAdd.setEnabled(true);
+			boutonSous.setEnabled(true);
+			boutonMult.setEnabled(true);
+			if (Integer.parseInt(texte2.getText())!=0){boutonDiv.setEnabled(true);}
+			else operationsBox.removeItemAt(3);
+		}
+		else {
+			operationsBox.setEnabled(false);
+			boutonAdd.setEnabled(false);
+			boutonSous.setEnabled(false);
+			boutonMult.setEnabled(false);
+			boutonDiv.setEnabled(false);
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if (texte1.getText().length()!=0 && texte2.getText().length()!=0) {
+			if(operationsBox.getItemCount()<4) {operationsBox.addItem("division");}
+			operationsBox.setEnabled(true);
+			boutonAdd.setEnabled(true);
+			boutonSous.setEnabled(true);
+			boutonMult.setEnabled(true);
+			if (Integer.parseInt(texte2.getText())!=0){boutonDiv.setEnabled(true);}
+			else operationsBox.removeItemAt(3);
+		}
+		else {
+			operationsBox.setEnabled(false);
+			boutonAdd.setEnabled(false);
+			boutonSous.setEnabled(false);
+			boutonMult.setEnabled(false);
+			boutonDiv.setEnabled(false);
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		if (texte1.getText().length()!=0 && texte2.getText().length()!=0) {
+			if(operationsBox.getItemCount()<4) {operationsBox.addItem("division");}
+			operationsBox.setEnabled(true);
+			boutonAdd.setEnabled(true);
+			boutonSous.setEnabled(true);
+			boutonMult.setEnabled(true);
+			if (Integer.parseInt(texte2.getText())!=0){boutonDiv.setEnabled(true);}
+			else operationsBox.removeItemAt(3);
+		}
+		else {
+			operationsBox.setEnabled(false);
+			boutonAdd.setEnabled(false);
+			boutonSous.setEnabled(false);
+			boutonMult.setEnabled(false);
+			boutonDiv.setEnabled(false);
+		}
+	}
+	
+	
+	
+	
+	
+	
+}

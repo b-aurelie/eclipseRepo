@@ -1,0 +1,99 @@
+package model;
+
+/**
+ * @author Administrateur
+ *
+ */
+public class Personne {
+
+	private int numP;
+	private String nom;
+	private String prenom;
+	private String age;
+	
+	/**
+	 * 
+	 */
+	public Personne() {super();}
+
+	/**
+	 * @param numP
+	 * @param nom
+	 * @param prenom
+	 * @param age
+	 */
+	public Personne(int numP, String nom, String prenom, String age) {
+		super();
+		this.numP = numP;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.age = age;
+	}
+
+	
+	/**
+	 * @return
+	 */
+	public int getNumP() {
+		return numP;
+	}
+
+	/**
+	 * @param numP
+	 */
+	public void setNumP(int numP) {
+		this.numP = numP;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getNom() {
+		return nom;
+	}
+
+	/**
+	 * @param nom
+	 */
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getPrenom() {
+		return prenom;
+	}
+
+	/**
+	 * @param prenom
+	 */
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getAge() {
+		return age;
+	}
+
+	/**
+	 * @param age
+	 */
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Personne [numP=" + numP + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + "]";
+	}
+	
+	
+}

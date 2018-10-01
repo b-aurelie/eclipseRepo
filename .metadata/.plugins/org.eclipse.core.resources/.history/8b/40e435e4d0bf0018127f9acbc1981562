@@ -1,0 +1,25 @@
+package testException;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+//		int x=0,y=5;
+//		try {
+//			System.out.println(y/x);
+//		}
+//		catch (Exception e) {
+//			System.out.println("Exception : " + e.getMessage());
+//			e.printStackTrace();
+//		}
+//		System.out.println("Fin de calcul");
+			
+		Adresse a = null;
+		try {a = new Adresse ("rue de paradis", "Marseille","1300");}
+		catch(IncorrectCodePostalException icpe) {
+		icpe.printStackTrace();
+		}
+
+	}
+
+}
